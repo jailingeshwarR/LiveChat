@@ -13,7 +13,7 @@ provider:
   name: aws
   runtime: nodejs14.x
   environment: ${file(env.json)}
-  stage: ${opt:stage, 'chat-development'}
+  stage: ${opt:stage, 'dev'}
   region: ${opt:region, 'ap-south-1'}
 
 functions:

@@ -10,6 +10,8 @@ const api = axios.create({
 
 module.exports.handler = async (event) => {
   try {
+
+    let webhookURL = event.body.WEBHOOK_URL;
     
     const checkWebHookExists = async () => {
         console.log("ENTERED TO CHECK WEBHOOK EXIST=>")
@@ -23,7 +25,7 @@ module.exports.handler = async (event) => {
     const registerWebHook = async () => {
         console.log("ENTERED TO REGISTER WEBHOOK=>")
       const response = await api.post("/v3.3/configuration/action/register_webhook", {
-        url: process.env.WEBHOOK_URL,
+        url: webhookURL,
         description: "Webhook informing about thread tagged",
         action: "thread_tagged",
         secret_key: process.env.SECRET_KEY,
