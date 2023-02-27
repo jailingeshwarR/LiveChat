@@ -12,5 +12,5 @@ webHook:
   events:
     - http:
         path: /webHook
-        method: GET
+        method: POST
 
