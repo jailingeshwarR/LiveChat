@@ -1,0 +1,16 @@
+chatTagged:
+  name: chatTagged-${sls:stage}
+  handler: src/handlers/chatTagged.handler
+  events:
+    - http:
+        path: /chatTagged
+        method: POST
+
+webHook:
+  name: webhook-${sls:stage}
+  handler: src/handlers/webHook.handler
+  events:
+    - http:
+        path: /webHook
+        method: GET
+

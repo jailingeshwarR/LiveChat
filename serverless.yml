@@ -1,0 +1,20 @@
+service: LiveChat
+frameworkVersion: '3'
+
+plugins:
+  - serverless-api-gateway-throttling
+
+custom:
+  apiGatewayThrottling:
+    maxRequestsPerSecond: 100
+    maxConcurrentRequests: 50
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  environment: ${file(env.json)}
+  stage: ${opt:stage, 'chat-development'}
+  region: ${opt:region, 'ap-south-1'}
+
+functions:
+  - ${file(src/serverless-resources/functions.yml)}
