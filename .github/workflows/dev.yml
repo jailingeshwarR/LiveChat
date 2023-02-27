@@ -1,0 +1,29 @@
+name: Backend Deployment
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  deploy:
+    name: deploy
+    runs-on: ubuntu-latest
+
+    env:
+      AWS_ACCESS_KEY_ID: "AKIA3BEKUAP4T3GM7T7V"
+      AWS_SECRET_ACCESS_KEY: "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"
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 14
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install Serverless Framework
+        run: npm install -g serverless
+
+      - name: Deploy to AWS
+        run: npm run sls:deploy:dev
