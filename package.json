@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "sls:deploy:dev": "npm install && serverless plugin install --name serverless-appsync-plugin && serverless deploy --stage dev --region ap-south-1"
+    "sls:deploy:dev": "npm install &&  serverless deploy --stage dev --region ap-south-1"
   },
   "author": "",
   "license": "ISC",
