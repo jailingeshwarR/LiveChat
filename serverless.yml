@@ -4,11 +4,6 @@ frameworkVersion: '3'
 plugins:
   - serverless-api-gateway-throttling
 
-custom:
-  apiGatewayThrottling:
-    maxRequestsPerSecond: 100
-    maxConcurrentRequests: 50
-
 provider:
   name: aws
   runtime: nodejs14.x
@@ -18,3 +13,8 @@ provider:
 
 functions:
   - ${file(src/serverless-resources/functions.yml)}
+
+custom:
+  apiGatewayThrottling:
+    maxRequestsPerSecond: 100
+    maxConcurrentRequests: 50
