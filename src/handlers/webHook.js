@@ -1,10 +1,10 @@
 const axios = require("axios");
 
 const api = axios.create({
-  baseURL: process.env.API_URL,
+  baseURL: process.env.LIVE_CHAT_API_URL,
   headers: {
     "Content-Type": "application/json",
-    Authorization: process.env.PAT,
+    Authorization: process.env.LIVE_CHAT_PAT,
   },
 });
 
@@ -28,7 +28,7 @@ module.exports.handler = async (event) => {
         url: webhookURL,
         description: "Webhook informing about thread tagged",
         action: "thread_tagged",
-        secret_key: process.env.SECRET_KEY,
+        secret_key: process.env.LIVE_CHAT_SECRET_KEY,
         owner_client_id: process.env.CLIENT_ID,
         type: "license",
       });

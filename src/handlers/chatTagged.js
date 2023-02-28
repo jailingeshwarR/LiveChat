@@ -1,21 +1,20 @@
 const axios = require("axios");
 
 const api = axios.create({
-  baseURL: process.env.API_URL,
+  baseURL: process.env.LIVE_CHAT_API_URL,
   headers: {
     "Content-Type": "application/json",
-    Authorization: process.env.PAT,
+    Authorization: process.env.LIVE_CHAT_PAT,
   },
 });
 
 module.exports.handler = async (event) => {
   try {
-    let secretKey = process.env.SECRET_KEY;
+    let secretKey = process.env.LIVE_CHAT_SECRET_KEY;
     let body = JSON.parse(event.body);
     let chatId = body.payload.chat_id;
     console.log("entered request");
     console.log("payload=>", chatId);
-    // console.log("event", event);
 
     const chatDetails = async () => {
       const response = await api.post("/v3.4/agent/action/get_chat", {
