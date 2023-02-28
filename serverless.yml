@@ -13,8 +13,3 @@ provider:
 
 functions:
   - ${file(src/serverless-resources/functions.yml)}
-
-custom:
-  apiGatewayThrottling:
-    maxRequestsPerSecond: 100
-    maxConcurrentRequests: 50
