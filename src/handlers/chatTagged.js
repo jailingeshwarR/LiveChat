@@ -11,6 +11,7 @@ const api = axios.create({
 module.exports.handler = async (event) => {
   try {
     let secretKey = process.env.LIVE_CHAT_SECRET_KEY;
+    console.log("secret key=>",secretKey);
     let body = JSON.parse(event.body);
     let chatId = body.payload.chat_id;
     console.log("entered request");
