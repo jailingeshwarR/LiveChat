@@ -5,6 +5,9 @@ chatTagged:
     - http:
         path: /chatTagged
         method: POST
+        throttling:
+          maxRequestsPerSecond: 100
+          maxConcurrentRequests: 50
 
 webHook:
   name: webhook-${sls:stage}
@@ -13,4 +16,7 @@ webHook:
     - http:
         path: /webHook
         method: POST
+        throttling:
+          maxRequestsPerSecond: 100
+          maxConcurrentRequests: 50
 
